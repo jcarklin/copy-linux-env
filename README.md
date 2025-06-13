@@ -31,7 +31,7 @@ dpkg --get-selections > ~/backup/package-list.txt
 rsync -av ~/.bashrc ~/.bash_aliases ~/.vimrc ~/.config ~/.ssh ~/Documents ~/Projects ~/backup/
 
 # Backup PostgreSQL data (requires password or trust authentication)
-pg_dumpall -U postgres > ~/backup/db-backups/all_databases.sql
+sudo -u postgres pg_dumpall > ~/backup/db-backups/all_databases.sql
 ```
 
 2. **Transfer the entire `backup/` folder to your new system**'s home directory (or the external SSD install).

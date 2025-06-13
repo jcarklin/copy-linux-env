@@ -69,15 +69,14 @@ else
 fi
 
 # -- VS Code (Optional) --
-echo "🌐 Optional: Install VS Code? (y/n)"
-read -r install_vscode
-if [[ "$install_vscode" == "y" ]]; then
-    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+echo "🌐 Optional: Install VS Codium? (y/n)"
+read -r install_vscodium
+if [[ "$install_vscodium" == "y" ]]; then
+    wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+    echo 'deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] https://download.vscodium.com/debs vscodium main' sudo tee /etc/apt/sources.list.d/vscodium.list
     sudo apt update
-    sudo apt install -y code
-    rm microsoft.gpg
+    sudo apt install -y codium
+    rm vscodium-archive-keyring.gpg
 fi
 
 # -- IntelliJ Ultimate Restore --

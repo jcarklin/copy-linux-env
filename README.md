@@ -77,11 +77,3 @@ chmod +x restore-dev-env.sh
 - If copying `.cache/JetBrains/`, ensure versions match to avoid weird behavior.
 
 ---
-
-## 🧰 Optional Additions
-
-- Python, Node.js, or other language runtimes
-- GUI tools like pgAdmin or DBeaver
-- Terminal theming (e.g., Starship, ZSH)
-
-Let me know if you want to add any of these.
